@@ -8,10 +8,10 @@ import java.time.format.DateTimeFormatter;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner inputScan = new Scanner(System.in);  //ativando teclado
+        Scanner inputScan = new Scanner(System.in); // ativando teclado
         boolean executando = true;
 
-        List<Tarefa>listaTarefas=new ArrayList<>();
+        List<Tarefa> listaTarefas = new ArrayList<>();
 
         System.out.println("======= TO-DO LIST BY DARADEV ========");
         System.out.println("Digite o seu nome: ");
@@ -31,17 +31,17 @@ public class Main {
             System.out.println("");
             System.out.println("==================================================");
 
-            //Entrada
+            // Entrada
             System.out.println("Digite uma opção:");
             int acaoMenu = inputScan.nextInt();
             inputScan.nextLine();
 
-            System.out.println("A opção escolhida foi " + acaoMenu);
+            System.out.println("\nA opção escolhida foi " + acaoMenu);
 
-            //Output
-            executando = switch (acaoMenu){
+            // Output
+            executando = switch (acaoMenu) {
                 case 1 -> {
-                    System.out.println("Digite o titulo: ");
+                    System.out.println("\nDigite o titulo: ");
                     String titulo = inputScan.nextLine();
 
                     System.out.println("Digite uma descrição: ");
@@ -55,30 +55,45 @@ public class Main {
                     Tarefa novaTarefa = new Tarefa(titulo, descricao, dataDeEntrega);
                     listaTarefas.add(novaTarefa);
 
-                    System.out.println("Tarefa adicionada com sucesso!");
-                    System.out.println(novaTarefa);
-                    System.out.println(listaTarefas);
+                    System.out.println("\nTarefa adicionada com sucesso!");
+                    System.out.println("\n" + novaTarefa);
 
                     yield true;
                 }
                 case 2 -> {
                     System.out.println("Listando tarefas pendentes...");
+                    System.out.println(listaTarefas);
+
                     yield true;// p/ entregar um valor
                 }
                 case 3 -> {
                     System.out.println("Buscando tarefa pelo nome...");
+
+ //                   ArrayList<String> lista = new ArrayList<>();
+  //                  lista.add("Estudar");
+    //                lista.add("Comer");
+      //              lista.add("Dormir");
+//
+  //                  String busca = "Comer";
+
+  //                  if (lista.contains(busca)) {
+    //                    System.out.println("Achou!");
+      //              } else {
+       //                 System.out.println("Não achou.");
+         //           }
+
                     yield true;
                 }
                 case 4 -> {
                     System.out.println(" Marcando como concluido...");
                     yield true;
                 }
-                case 5 ->{
+                case 5 -> {
                     System.out.println("Excluindo...");
                     yield true;
                 }
                 case 0 -> false;
-                default -> { //ELse
+                default -> { // ELse
                     System.out.println("Opção invalida");
                     yield true;
                 }
@@ -86,6 +101,6 @@ public class Main {
 
         }
 
-     inputScan.close();
+        inputScan.close();
     }
 }

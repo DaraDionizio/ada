@@ -13,17 +13,26 @@ public class Tarefa {
         this.titulo = titulo;
         this.descricao = descricao;
         this.dataDeEntrega = dataDeEntrega;
+        this.concluida = false;
     }
 
     @Override // essêncial para acessar as variaveis e não o endereço de memoria delas.
     public String toString(){
-        return "Tarefa{" +
-                "titulo= '" + titulo + '\'' +
-                ", descrição= '" + descricao + '\'' +
-                ", dataEntrega= " + dataDeEntrega +
-                ", concluida= " + concluida +
-                '}';
+        return "Tarefa: \n " +
+                "titulo = " + titulo + "\n" +
+                " descrição = " + descricao + "\n" +
+                " dataEntrega = " + dataDeEntrega + "\n" +
+                " concluida = " + concluida + "\n";
     }
+/*
+    @Override             --- string
+public String toString() {
+    return String.format(
+        "Tarefa { título='%s', descrição='%s', dataEntrega=%s, concluída=%s }",
+        titulo, descricao, dataDeEntrega, concluida
+    );
+}
+*/
 
     //Métodos com Geters e Seters
     public String getTitulo(){
